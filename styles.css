@@ -1,0 +1,666 @@
+/* Add this to your styles.css file */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.header-part{
+    width:75%;
+    background-color: white;
+    border-radius:10px;
+    margin: auto;
+    padding: 1.5rem 1rem;
+    box-shadow: 10px 25px 30px rgba(0,0,0,0.3);
+    font-family:'Franklin Gclass=" container tailormade-container"othic Medium', 'Arial Narrow', Arial, sans-serif
+ 
+ }
+.tiles label{
+    cursor: pointer;
+    padding:.7rem;
+    border-radius: 2px ;
+}
+.tiles label:hover{
+    outline:1px solid #095a5b ;
+    
+}
+.checked-tile{
+    outline:1px solid #095a5b ;
+}
+
+.circle {
+    width: 50px;
+    aspect-ratio: 1;
+    background-color:#095a5b;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter:contrast(0.35);
+    padding:1rem
+}
+.text-between {
+    font-size: 18px;
+
+}
+
+
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    width: 75% !important; 
+    margin-right: 33px;
+    margin-left: 80px;
+    }
+    
+
+    
+    
+    
+
+
+
+ /* CSS to style the button */
+ /*#showTextAreaButton {
+    background-color:white;
+    color: #030606;
+    border: none;
+    border-radius: 26px;
+    padding: 10px 20px;
+    font-size:20px;
+    cursor: pointer;
+    border:2px solid #095a5b;
+    top:50%;
+    left:15%;
+}*/
+
+.drop1 {
+   
+    display:grid;
+    margin: 1rem;
+    padding-left: 37px;
+  }
+/* CSS to initially hide the text area */
+@media(max-width:515px){
+    .text-between{
+        font-size: 15px;
+    }
+    .circle{
+        padding:0.5rem;
+    }
+}
+
+
+@media(max-width:480px){
+    .drop1{
+        padding: 0px;
+        width:100%;
+    }
+    
+    .text-between {
+        font-size: 12px;
+      
+      }
+    .circle{
+        padding: 0rem;
+    }
+    
+}
+
+ 
+ .setp2{
+    width:15rem;
+      position:absolute;
+      height:3rem;
+      top:50%;
+      left:25%;
+      overflow:unset;
+      background-color: white;
+      background-size: 100% 100%;
+     border-radius:30px;
+      box-shadow: 10px 25px 30px rgba(0,0,0,0.3);
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      border:3px solid #095a5b;
+ 
+ }
+ 
+
+
+
+.circle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+
+}
+.d-flex:has(.icon-box){
+    gap:1rem;
+}
+
+.icon-box {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius:29px;
+    border:2px solid #095a5b;
+    
+}
+
+.icon-box .icon {
+    font-size:20px;
+    margin-right:10px;
+    
+}
+
+.icon-box .text {
+    font-size:17px;
+}
+
+
+
+@media (max-width:753px){
+    .header-part{
+        width: 86%;
+    }
+    .circle-container{
+        gap:0.5rem;
+    }
+}
+@media (max-width:668px){
+    .header-part{
+        width: 100%;
+    }
+    
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width:1024px) {
+    .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        width: 80% !important; 
+        margin-right: 40px;
+        margin-left: 50px;
+    }
+    
+    .text-between {
+        font-size: 16px;
+        
+      }
+    
+    
+}
+
+
+
+@media screen and (min-width:481px) and (max-width:760px) {
+    .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        width: 80% !important; 
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+   
+    
+    
+    
+}
+
+
+
+.icon-box2 {
+    display: flex;
+    align-items: center;
+    padding:5px;
+    background-color: #f0f0f0;
+    width:270px;
+    border-radius:15px;
+    border:3px solid #095a5b;
+    margin-right:0%;
+    margin-top:0%;
+    height: auto;
+}
+
+.icon-box3 {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: #f0f0f0;
+    width:270px;
+    border-radius:15px;
+    border:3px solid #095a5b;
+    margin-left:0%;
+    margin-top:5%;
+    height: auto;
+}
+
+
+.icon-box4{
+    display: flex;
+    align-items: center;
+    padding:5px;
+    background-color: #f0f0f0;
+    width:270px;
+    border-radius:15px;
+    border:3px solid #095a5b;
+    margin-right:0%;
+    margin-top:0%;
+    height: auto;
+}
+
+.icon-box4 .icon4{
+    font-size:17px;
+    margin-right:10px;
+}
+
+.icon-box4 .text4 {
+    font-size: 16px;
+    font-weight:bold;
+}
+
+.icon-box5 {
+    display: flex;
+    align-items: center;
+    padding:5px;
+    background-color: #f0f0f0;
+    width:270px;
+    border-radius:15px;
+    border:3px solid #095a5b;
+    margin-right:0%;
+    margin-top:0%;
+    height: auto;
+}
+
+
+.icon-box5 .icon5{
+    font-size:17px;
+    margin-right:10px;
+    
+}
+
+.icon-box5 .text5 {
+    font-size: 15px;
+    font-weight:bold;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:2px;
+    text-align: center;
+    width:280px;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.selected{
+    background-color: #4CAF50; /* Green color (change as needed) */
+    color: white; /* Text color for the selected button */
+}
+
+.fa-icon {
+    font-size: 50px;
+}
+
+/* Style for the button */
+.dropbtn {
+    background-color:white;
+    color:#090d0d;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius:26px;
+border:2px solid #095a5b;
+}
+
+/* Style for the icon on the left */
+.icon {
+    margin-right: 10px;
+}
+
+/* Style for the text on the right */
+.text {
+    flex:1;
+    font-size:11px;
+}
+
+/* Style for the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Style for each dropdown item */
+.dropdown-content a {
+    color:#095a5b;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Style for the dropdown items on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown content when hovering over the button */
+
+#counter {
+    display: flex;
+    align-items: center;
+    font-size:15px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width:280px;
+    border:2px solid black;
+}
+
+.too{
+    cursor: pointer;
+    margin-right: 10px;
+    width:20px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+    color:#095a5b;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    --form-check-input-checked-border-color: rgba(0, 0, 0, 0.2) ;
+   /* max-width: 600px;*/
+    margin: auto;
+    background-color: #fff;
+    padding:20px;
+    border-radius:20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    position:absolute;
+    top:23%;
+    left:50%;
+
+    border:3px solid #095a5b;
+    transform: translateX(-50%);
+}
+@media(max-width:480px){
+    .container{
+    top: 16%;
+    left: 49%;
+    }
+}
+
+.tailormade-container {
+    container-type: inline-size;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.step {
+    display: none;
+}
+
+.step-1 {
+    display: block;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+input[type=text],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button,
+input[type=submit] {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button.btn {
+    background-color:#095A5B !important;
+}
+
+.prev-btn {
+    background-color: #ccc;
+}
+
+.submit-btn {
+    background-color: #28a745;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+.errormsg {
+    color: red;
+}
+
+.form-check-input:checked{
+    background-color:#095a5b !important;
+}
+
+/* Step 1 styles */
+
+.labels {
+    gap: 1rem;
+}
+
+.country-label {
+    position: relative;
+}
+
+.country-label {
+    border-radius: 16px;
+    overflow: hidden;
+
+}
+
+.country-label::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.country-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:2rem;
+    color: white;
+    font-weight: bold;
+}
+
+
+@media(hover: hover) {
+    .country-label:hover {
+        outline: 5px solid #095A5B;
+        cursor: pointer;
+    }
+
+}
+
+.country-label img {
+    transition: all 300ms ease;
+}
+
+.country-label:hover img {
+    transform: scale(1.3);
+}
+
+h3 {
+    color: #095A5B;
+}
+
+.country-checked {
+    outline: 5px solid #095A5B;
+}
+
+/* Step 2 style */
+
+.activities {
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1rem;
+    font-weight: 500;
+    padding-top: 50px;
+    padding-left: 138px;
+}
+@media screen and (min-width:481px) and (max-width:760px) {
+    .activities{
+        padding-left: 38px;
+    }
+}
+@container (max-width: 540px) {
+    .activities {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@container (max-width: 500px) {
+    .activities {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@container (max-width: 341px) {
+    .activities {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media(max-width:480px){
+    .activities{
+        display:flex;
+        gap: 0.5rem;
+        font-weight: 500;
+        padding-top: 29px;
+        padding-left: 20px;
+    }
+    .form-check-label.act-font {
+        font-size: 12px;
+    }
+    
+    
+}
+.tour-selection > .d-flex{
+    flex-basis: 460px;
+    flex:1;
+    flex-wrap:wrap;
+}
+
+/* Step 3 style */
+.flex-responsive{
+    display:flex;
+    gap:2rem;
+    align-items:baseline;
+    flex-wrap: wrap;
+
+}
+.flex-responsive>* {
+    flex-basis: 700px;
+    flex:1;
+    align-items: center;
+}
+.travel-date{
+    display: flex;
+    flex-wrap: wrap;
+    gap:2rem;
+}
+.travel-date>*{
+    margin:auto;
+}
+.travel-date-info{
+    /* border: 1px solid; */
+    justify-content: space-around;
+    width: 100%;
+    gap: 10rem;
+    margin-block: 1rem;
+}
+
+.travel-date-info > div > *{
+    margin:auto;
+}
+
+.travel-date-info > div.d-flex{
+    gap: 2rem;
+}
+
+/* Step 4 style */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.set-gap {
+    gap: .5rem;
+}
+
+.traverllers input {
+    padding: 1rem;
+}
+
+
+/* Step 5 */
+
+.inputs {
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+

@@ -1,8 +1,46 @@
 
+//form validation
+
+function validateForm(){
+    formValue=true;
+
+    var name=document.forms["tailormade-form"]["full-name"].value;
+    var email=document.forms["tailormade-form"]["email"].value;
+   
+    if(name.length<5){
+        var errorSpan = document.querySelector('.formNameError');
+        errorSpan.innerHTML = "Name is too short";
+        formValue = false;
+    }
+    if(name.length==0){
+        var errorSpan = document.querySelector('.formNameError');
+        errorSpan.innerHTML = "Name should not be 0";
+        formValue = false;
+    }
+    
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        var emailErrorSpan = document.querySelector('.formEmailError');
+        emailErrorSpan.innerHTML = "Invalid email address";
+        formValue = false;
+    }
+    
+    if(email.length==0)
+    {
+        var err= document.querySelector('.formEmailError');
+        emailErrorSpan.innerHTML = "Invalid email address";
+        formValue = false;
+
+    }
+    return formValue;
+
+
+}
+
 // show package on hover.
 document.querySelector(".show-tour-packages").addEventListener("mouseover", ()=>{
     document.querySelector(".dropdown-content").style.display = "block";
-    console.log("Muji");
+  
 })
 
 document.querySelector(".dropdown-content").addEventListener("mouseleave", ()=>{

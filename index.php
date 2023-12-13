@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="container-fluid container tailormade-container">
-            <form id="tailormade-form" name="tailormade-form" class="form" action="./send.php" method="post">
+            <form id="tailormade-form" name="tailormade-form" class="form" action="./send.php" method="post" onsubmit="return validateForm()">
 
                 <div class="step step-1">
 
@@ -306,10 +306,12 @@
 
                                         <label for="full-name" hidden>Full Name: </label>
                                         <input type="text" id="full-name" name="full-name" placeholder="Full name">
+                                        <span style="color:red" class="formNameError"></span>
                                     </div>
 
                                     <label for="email" hidden>Email: </label>
                                     <input type="email" id="email" name="email" placeholder="Email">
+                                    <span style="color:red" class="formEmailError"></span>
 
                                     <label for="phone" hidden>Phone: </label>
                                     <input type="tel" id="phone" name="phone-skype" placeholder="Phone/Skype number">

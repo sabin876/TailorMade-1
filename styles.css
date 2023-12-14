@@ -22,7 +22,6 @@ body {
 }
 .tiles label:hover{
     outline:1px solid #095a5b ;
-    
 }
 .checked-tile{
     outline:1px solid #095a5b ;
@@ -38,7 +37,6 @@ body {
     justify-content: center;
     align-items: center;
     filter:contrast(0.35);
-    padding:1rem
 }
 .text-between {
     font-size: 18px;
@@ -316,6 +314,7 @@ body {
     align-items: center;
     border-radius:26px;
 border:2px solid #095a5b;
+gap:7px;
 }
 
 /* Style for the icon on the left */
@@ -426,22 +425,19 @@ border:2px solid #095a5b;
 h2 {
     margin-bottom: 20px;
 }
-
-input[type=text],
+input,
 select {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #ccc;
+    border: 1px solid #095A5B;
     border-radius: 3px;
 }
 
 button,
-input[type=submit] {
+input {
     padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
+    color: #188a8b;
     border-radius: 3px;
     cursor: pointer;
 }
@@ -626,6 +622,11 @@ h3 {
 
 .travel-date-info > div.d-flex{
     gap: 2rem;
+}
+
+.decide-later-label{
+    background-color: #095a5b22;
+    border-radius: 7px;
 }
 
 /* Step 4 style */

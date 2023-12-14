@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="container-fluid container tailormade-container">
-            <form id="tailormade-form" name="tailormade-form" class="form" action="./send.php" method="post" onsubmit="return validateForm()">
+            <form id="tailormade-form" name="tailormade-form" class="form" action="./send.php" method="post">
 
                 <div class="step step-1">
 
@@ -109,7 +109,7 @@
                                     <strong class="text">I want to described by preferred tour</strong>
                                 </button>
 
-                                <textarea id="textArea" name="own-description"  class="my-2 hidden" rows="5" placeholder="Describe your preference" style="resize: vertical;"></textarea>
+                                <textarea id="own-description" name="own-description"  class="my-2 hidden" rows="5" placeholder="Describe your preference" style="resize: vertical;"></textarea>
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                         
                             <div class="grid tiles  partners mt-2">
 
-                                <label for="solo">
+                                <label class="checked-tile" for="solo ">
 
                                     <i class="fa-solid fa-user" style="color: #095a5b;"></i>
                                     <p>Solo</p>
@@ -180,8 +180,10 @@
                                 </div>
                             </div>
 
-                            <div class="travel-date">
+                            <div class="travel-date tiles">
+                                
                                 <div class="know-date text-center mt-2">
+
                                     <strong>
                                         <i class="fa-solid fa-regular fa-calendar-days" style="color: #095a5b;"></i>
                                         I know my date.</strong>
@@ -190,10 +192,11 @@
 
                                 </div>
 
-                                <div class="decide-later">
+                                <label for="decide-later" class="decide-later-label">
+                                    <input type="checkbox" value="decide-later" name="decide-later" hidden id="decide-later">
                                     <i class="fa-solid fa-clock-rotate-left" style="color: #095a5b;"></i>
                                     <strong>I will decide later.</strong>
-                                </div>
+                                </label>
 
                             </div>
 
@@ -305,19 +308,19 @@
                                         <label class="btn btn-outline-secondary" for="mrs">Mrs.</label>
 
                                         <label for="full-name" hidden>Full Name: </label>
-                                        <input type="text" id="full-name" name="full-name" placeholder="Full name">
+                                        <input type="text" class="personal-info" id="full-name" name="full-name" placeholder="Full name">
                                         <span style="color:red" class="formNameError"></span>
                                     </div>
 
                                     <label for="email" hidden>Email: </label>
-                                    <input type="email" id="email" name="email" placeholder="Email">
+                                    <input type="email" class="personal-info" id="email" name="email" placeholder="Email">
                                     <span style="color:red" class="formEmailError"></span>
 
                                     <label for="phone" hidden>Phone: </label>
-                                    <input type="tel" id="phone" name="phone-skype" placeholder="Phone/Skype number">
+                                    <input type="tel" class="personal-info" id="phone" name="phone-skype" placeholder="Phone/Skype number">
 
                                     <label for="nationality" hidden>Nationality: </label>
-                                    <input type="text" id="nationality" name="nationality" placeholder="Nationality">
+                                    <input type="text" class="personal-info" id="nationality" name="nationality" placeholder="Nationality">
 
                                     <div class="contact-way my-3 mx-auto ">
                                         <h5>Best way to contact you: </h5>
@@ -360,6 +363,7 @@
                                     Addtional Inofrmation
                                 </div>
                             </div>
+
                             <textarea class="form-control" id="" cols="40"
                                 placeholder="Tell us more about you. What you are particularly interested in; anything that can help us help you."
                                 rows="5" name="add-info"></textarea>
@@ -384,7 +388,7 @@
                     <!-- Buttons -->
                     <div class="buttons text-center my-4 ">
                         <button type="button"  class="btn btn-primary prev-btn" onclick="prevStep(5)"  >previous</button>
-                        <input type="submit" class="btn btn-success submit-btn" name="send" value="send">
+                        <button type="submit" class="btn btn-success submit-btn" name="send">submit</button>
                     </div>
 
                 </div>

@@ -1,41 +1,6 @@
 
-//form validation
-
-function validateForm(){
-    formValue=true;
-
-    var name=document.forms["tailormade-form"]["full-name"].value;
-    var email=document.forms["tailormade-form"]["email"].value;
-   
-    if(name.length<5){
-        var errorSpan = document.querySelector('.formNameError');
-        errorSpan.innerHTML = "Name is too short";
-        formValue = false;
-    }
-    if(name.length==0){
-        var errorSpan = document.querySelector('.formNameError');
-        errorSpan.innerHTML = "Name should not be 0";
-        formValue = false;
-    }
-    
-    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        var emailErrorSpan = document.querySelector('.formEmailError');
-        emailErrorSpan.innerHTML = "Invalid email address";
-        formValue = false;
-    }
-    
-    if(email.length==0)
-    {
-        var err= document.querySelector('.formEmailError');
-        emailErrorSpan.innerHTML = "Invalid email address";
-        formValue = false;
-
-    }
-    return formValue;
 
 
-}
 
 // show package on hover.
 document.querySelector(".show-tour-packages").addEventListener("mouseover", ()=>{
@@ -49,12 +14,12 @@ document.querySelector(".dropdown-content").addEventListener("mouseleave", ()=>{
 
 //for textbox hidden and unhidden
 const showTextBox=document.getElementById('showTextAreaButton');
-const textArea=document.getElementById('textArea');
+const textArea=document.getElementById('own-description');
 showTextBox.addEventListener('click',function(){
      textArea.classList.toggle('hidden');  
 })
 
-const tileSelector=(selector)=>{
+const addTileSelector=(selector)=>{
     const partnerOptions= document.querySelectorAll(selector);
     partnerOptions.forEach((partnerOption)=>{
         partnerOption.addEventListener('click',()=>{
@@ -68,17 +33,13 @@ const tileSelector=(selector)=>{
         })
     })
 }
-//selecting who are you travelling with package
-tileSelector('.tiles.partners label');
-tileSelector('.tiles.lodging label');
 
-
-
-
+addTileSelector('.tiles.partners label');
+addTileSelector('.tiles.lodging label');
+addTileSelector('.tiles.travel-date label')
 
 
 let currentStep = 1;
-const form = document.getElementById('tailormade-form');
 document.querySelector(`.circle1`).style.filter = 'contrast(100%)';
 function nextStep(step) {
     if (step < 5) {
@@ -104,19 +65,6 @@ function prevStep(step) {
     }
 }
 
-function updateConfirmation() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const bookingDate = document.getElementById('booking-date').value;
-    const service = document.getElementById('service').value;
-
-    document.getElementById('confirmation-name').textContent = name;
-    document.getElementById('confirmation-email').textContent = email;
-    document.getElementById('confirmation-date').textContent = bookingDate;
-    document.getElementById('confirmation-service').textContent = service;
-}
-
-
 // Step 1 script
 
 const countryLabelDiv = document.querySelector(".labels");
@@ -138,6 +86,7 @@ countryLabelDiv.onclick = (e) => {
 // Step 2 script
 
 const step2 = document.querySelector(".step-2");
+const step2Nextbutton=step2.querySelector(".next-btn");
 const activitiesDiv = step2.querySelector(".activities");
 
 activitiesDiv.onclick = () => {
@@ -146,13 +95,58 @@ activitiesDiv.onclick = () => {
 
     const checkedActivity = allActivity.filter((activity) => activity.checked);
 
-    step2.querySelector(".next-btn").classList.toggle("disabled", !(checkedActivity.length > 0));
+    step2Nextbutton.classList.toggle("disabled", !(checkedActivity.length > 0));
+
+
 
 }
+const ownDescription=step2.querySelector("#own-description");
+ownDescription.addEventListener("input",function(){
+
+    step2Nextbutton.classList.toggle("disabled",(ownDescription.innerText.length>0))
+});
+
+
 
 // Step 3 script
 
 const step3 = document.querySelector(".step-3");
+const datePicker=document.querySelector("#date-picker");
+const decideLater=document.querySelector(".decide-later-label");
+const step3NextBtn = step3.querySelector(".next-btn");
+let isChecked = false;
+let dateValidate = false;
+
+const isTravellingPartnerSelected = () => {
+    const partners = step3.querySelectorAll('.partners > label');
+    for (const partner of partners) {
+        if (partner.classList.contains('checked-tile')){
+            return true;
+        }
+    }
+    return false;
+}
+
+step3.querySelector('.partners').onclick = () => {
+    if (isChecked && dateValidate){
+        step3.disabled = false;
+    }
+    else{
+        
+        step3.disabled = true;
+    }
+}
+
+decideLater.onclick = function(){
+    datePicker.value = null;
+    isChecked = decideLater.classList.contains("checked-tile");
+    step3NextBtn.classList.toggle("disabled", !(isChecked && isTravellingPartnerSelected()));
+};
+
+datePicker.onclick = () => {
+    decideLater.classList.remove("checked-tile");
+
+}
 
 const date = flatpickr("#date-picker", {
     enableTime: false,
@@ -160,28 +154,8 @@ const date = flatpickr("#date-picker", {
     minDate: "today",
     mode: "range",
     onClose: (selectedDates) => {
-        console.log((selectedDates[0].toString() === selectedDates[1].toString()));
-        step3.querySelector(".next-btn").classList.toggle("disabled", (selectedDates.length === 2 && selectedDates[0].toString() === selectedDates[1].toString()));
-    }
-});
-
-
-// budget incrementor and decrementor
-const increments = document.getElementById("increment");
-const decrements = document.getElementById("decrement");
-const countDisplay = document.getElementById("count");
-
-let count = 0;
-
-increments.addEventListener("click", function () {
-    count++;
-    countDisplay.textContent = count;
-});
-
-decrements.addEventListener("click", function () {
-    if (count > 0) {
-        count--;
-        countDisplay.textContent = count;
+         dateValidate = isTravellingPartnerSelected() && (selectedDates.length === 2 && selectedDates[0].toString() === selectedDates[1].toString());
+        step3NextBtn.classList.toggle("disabled", dateValidate);
     }
 });
 
@@ -208,6 +182,9 @@ catch(err){
 
 
 const step5 = document.querySelector(".step-5");
+const submitBtn = step5.querySelector(".submit-btn");
+const form = document.forms['tailormade-form'];
+submitBtn.disabled = true;
 
 const requiredInputFields = [
     step5.querySelector("#full-name"),
@@ -217,18 +194,27 @@ const requiredInputFields = [
     step5.querySelector("#nationality"),
 ]
 
-step5.querySelector(".next-btn").onclick = () => {
-    for (let i = 0; i < requiredInputFields.length; i++) {
-        const element = requiredInputFields[i];
-        if (element.value.trim() === "") {
-            break;
-        }
-    }
+const validatePersonalInfo = () =>{
 
-    if (Array.from(step5.querySelectorAll(".contact-way-checkbox:checked")).length > 0) {
-        nextStep(5);
-        return;
+}
+
+requiredInputFields.map( (inputField) =>{
+    inputField.onchange = () => {
+    const filledInputs = requiredInputFields.filter( (input) =>{
+        return input.value.trim().length > 0
+    } )
+
+    if (filledInputs.length === requiredInputFields.length){
+        submitBtn.disabled = false;
     }
+    else{
+        submitBtn.disabled = true;
+    }
+    }
+}  )
+
+submitBtn.onclick = (e) => {
+    e.preventDefault();
 
     step5.querySelector(".errormsg").innerText = "*All fields are required!"
     setTimeout(() => {
@@ -236,18 +222,3 @@ step5.querySelector(".next-btn").onclick = () => {
     }, 3000)
 
 }
-
-// Step 6 script
-
-const step6 = document.querySelector(".step-6");
-
-
-step6.querySelector(".submit-btn").onclick = () => {
-    document.forms['tailormade-form'].submit();
-}
-//budget estimation
-
-
-
-
-
